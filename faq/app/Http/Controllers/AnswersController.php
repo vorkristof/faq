@@ -24,18 +24,21 @@ class AnswersController extends Controller
         $question->add(
             new Answer([
                 'text' => request('text'),
-                'user_id' => auth()->id()
+                'user_id' => auth()->id(),
+                'votes' => '0'
             ])
         );
 
         return back();
     }
 
-    public function edit(Question $question, Answer $answer) {
+    public function edit(Question $question, Answer $answer)
+    {
         return view('answers.edit', compact('question'), compact('answer'));
     }
 
-    public function update(Request $request, Question $question, Answer $answer) {
+    public function update(Request $request, Question $question, Answer $answer)
+    {
         $this->validate(request(), [
             'text'=> 'required'
         ]);
@@ -47,14 +50,34 @@ class AnswersController extends Controller
         return redirect('question/'.$question->id);
     }
 
-    public function delete(Question $question, Answer $answer) {
+    public function delete(Question $question, Answer $answer)
+    {
         return view('answers.delete', compact('question'), compact('answer'));
     }
 
-    public function destroy(Request $request, Question $question, Answer $answer) {
+    public function destroy(Request $request, Question $question, Answer $answer)
+    {
         $answer->delete();
 
         return redirect('question/'.$question->id);
+    }
+
+    public function upvote(Question $question, Answer $answer)
+    {
+        $answer->update([
+            'votes' => $answer->votes + 1
+        ]);
+
+        return back();
+    }
+
+    public function downvote(Question $question, Answer $answer)
+    {
+        $answer->update([
+            'votes' => $answer->votes - 1
+        ]);
+
+        return back();
     }
 
 }

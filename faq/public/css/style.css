@@ -2,6 +2,7 @@
 
 .justified {
     text-align: justify;
+    word-wrap: break-word;
 }
 
 .float-right {
@@ -58,8 +59,7 @@
 
 a > div > p {
     margin: 0pc;
-    overflow-x: hidden;
-    text-overflow:ellipsis
+    word-wrap: break-word;
 }
 
 /* Overwritten elements */
@@ -90,6 +90,10 @@ textarea {
 textarea.form-control {
     position: static;
     height: 15pc;
+}
+
+.btn {
+    white-space: normal;
 }
 
 .row {

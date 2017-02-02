@@ -48,3 +48,7 @@ Route::patch('/question/{question}/{answer}', 'AnswersController@update');
 Route::get('/question/{question}/{answer}/delete', 'AnswersController@delete');
 Route::delete('/question/{question}/{answer}', 'AnswersController@destroy');
 
+// Edit answer
+Route::get('/question/{question}/{answer}/upvote', 'AnswersController@upvote');
+Route::get('/question/{question}/{answer}/downvote', 'AnswersController@downvote');
+
