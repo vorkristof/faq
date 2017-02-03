@@ -8,7 +8,7 @@ FAQ - Install
 		without password
 	database name: faq
 
-4.Create a Laravel project named 'faq'
+4. Create a Laravel project named 'faq'
 	composer create-project laravel/laravel faq
 
 5. Copy the project files in the new project folder
