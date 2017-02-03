@@ -7,6 +7,14 @@ FAQ - Install
 		username: root
 		without password
 	database name: faq
+
+4.Create a Laravel project named 'faq'
+	composer create-project laravel/laravel faq
+
+5. Copy the project files in the new project folder
 	
-4. Migrate the tables in to the database.
+6. Migrate the tables in to the database (from the project folder).
 	php artisan migrate
+
+7. Run the project (from the project folder).
+	php artisan serve
